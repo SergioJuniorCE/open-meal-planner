@@ -128,7 +128,7 @@ export default function MealsPage() {
         <div className="px-4 py-3">
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-3">
-              <Link to="/">
+              <Link to="/" className="hidden md:block">
                 <Button variant="ghost" size="sm" className="p-2">
                   <ArrowLeft className="w-5 h-5" />
                 </Button>
@@ -141,7 +141,7 @@ export default function MealsPage() {
               className="flex items-center gap-2"
             >
               <Plus className="w-4 h-4" />
-              <span className="hidden sm:inline">Add Meal</span>
+              <span className="hidden md:inline">Add Meal</span>
             </Button>
           </div>
         </div>

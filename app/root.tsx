@@ -10,6 +10,7 @@ import {
 } from 'react-router';
 
 import { ConvexProvider } from 'convex/react';
+import { MobileBottomNav } from './components/mobile-bottom-nav';
 import type { Route } from './+types/root';
 import { convex } from './lib/convex';
 
@@ -31,11 +32,11 @@ export function Layout({ children }: { children: React.ReactNode }) {
     <html lang="en">
       <head>
         <meta charSet="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
         <Meta />
         <Links />
       </head>
-      <body>
+      <body className="relative">
         {children}
         <ScrollRestoration />
         <Scripts />
@@ -47,7 +48,10 @@ export function Layout({ children }: { children: React.ReactNode }) {
 export default function App() {
   return (
     <ConvexProvider client={convex}>
-      <Outlet />
+      <div className="pb-16 md:pb-0">
+        <Outlet />
+      </div>
+      <MobileBottomNav />
     </ConvexProvider>
   );
 }

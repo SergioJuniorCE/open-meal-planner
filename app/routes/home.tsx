@@ -16,16 +16,15 @@ export default function Home() {
   const mealPlan = useQuery(api.meal.getMealPlan);
   console.log(mealPlan);
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="bg-gray-50">
       {/* Header - Mobile First */}
       <div className="bg-white shadow-sm border-b">
         <div className="px-4 py-4">
           <div className="flex items-center justify-between">
             <h1 className="text-2xl font-bold">Open Meal Planner</h1>
-            <Link to="/meals">
+            <Link to="/meals" className="hidden md:block">
               <Button size="sm" className="flex items-center gap-2">
-                <span className="hidden sm:inline">Manage Meals</span>
-                <span className="sm:hidden">Meals</span>
+                <span>Manage Meals</span>
               </Button>
             </Link>
           </div>
