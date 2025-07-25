@@ -6,6 +6,7 @@ import {
   CarouselPrevious,
 } from '@/components/ui/carousel';
 
+import { ChilaquilesIcon } from './icons/chilaquiles';
 import { MealCard } from './meal-card';
 
 const meals = [
@@ -15,6 +16,7 @@ const meals = [
     meal: 'Breakfast',
     image:
       'https://www.daisybrand.com/wp-content/uploads/2019/12/chilaquiles2-770x628_6301.jpg',
+    icon: <ChilaquilesIcon />,
   },
   {
     id: 2,
@@ -22,6 +24,7 @@ const meals = [
     meal: 'Lunch',
     image:
       'https://www.daisybrand.com/wp-content/uploads/2019/12/chilaquiles2-770x628_6301.jpg',
+    icon: <ChilaquilesIcon />,
   },
   {
     id: 3,
@@ -29,6 +32,7 @@ const meals = [
     meal: 'Dinner',
     image:
       'https://www.daisybrand.com/wp-content/uploads/2019/12/chilaquiles2-770x628_6301.jpg',
+    icon: <ChilaquilesIcon />,
   },
 ];
 
@@ -37,9 +41,13 @@ export const MealCardCarousel = () => {
     <Carousel className="w-full">
       <CarouselContent>
         <CarouselItem>
-          {meals.map((meal) => (
-            <MealCard meal={meal} key={meal.id} />
-          ))}
+          <div className="grid gap-4 auto-rows-min">
+            {meals.map((meal) => (
+              <div key={meal.id} className="transition-all duration-500 ease-in-out px-4">
+                <MealCard meal={meal} />
+              </div>
+            ))}
+          </div>
         </CarouselItem>
       </CarouselContent>
       <CarouselPrevious />
