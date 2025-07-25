@@ -14,7 +14,11 @@ export function meta({}: Route.MetaArgs) {
 
 export default function Home() {
   const mealPlan = useQuery(api.meal.getMealPlan);
-  console.log(mealPlan);
+
+  if (mealPlan === undefined || mealPlan.length === 0) {
+    return <div className="flex justify-center items-center h-64">No meal plans found. Please add a meal plan.</div>;
+  }
+
   return (
     <div className="min-h-screen bg-gray-50">
       {/* Header - Mobile First */}
